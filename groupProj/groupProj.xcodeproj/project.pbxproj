@@ -147,10 +147,10 @@
 		B586876226D7E22000E37DD0 /* groupProj */ = {
 			isa = PBXGroup;
 			children = (
-				B586876326D7E22000E37DD0 /* AppDelegate.swift */,
-				B586876526D7E22000E37DD0 /* SceneDelegate.swift */,
 				B586879A26D7F1D300E37DD0 /* CartViewTableViewController.swift */,
 				B586879826D7EE0400E37DD0 /* Cart.storyboard */,
+				B586876526D7E22000E37DD0 /* SceneDelegate.swift */,
+				B586876326D7E22000E37DD0 /* AppDelegate.swift */,
 				8D1E762626D8007E00B79EC2 /* Supporting */,
 				8D1E762526D8006800B79EC2 /* Controller */,
 				8D1E762426D8005C00B79EC2 /* Model */,

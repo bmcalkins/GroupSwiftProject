@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Tf-xU-zEL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Browse-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="groupProj" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,18 @@
                             <constraint firstItem="eN0-cX-DL2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wV5-kp-tlS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MAZ-NE-sxx"/>
+                    <navigationItem key="navigationItem" title="Browse" id="MAZ-NE-sxx">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="music.note.list" catalog="system" id="1kT-Y9-ml5">
+                            <connections>
+                                <action selector="goToMyAlbums:" destination="BYZ-38-t0r" id="UGf-Eg-52c"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="cart" catalog="system" id="XNM-8y-agt">
+                            <connections>
+                                <action selector="goToCart:" destination="BYZ-38-t0r" id="JGN-Qg-lBN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="eN0-cX-DL2" id="6tV-z8-aJv"/>
                     </connections>
@@ -59,6 +70,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="music.note.list" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

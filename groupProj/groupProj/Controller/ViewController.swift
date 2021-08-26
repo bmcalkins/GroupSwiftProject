@@ -11,6 +11,16 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    
+    ///outlet created for album view controller
+    
+//    @IBAction func goToMyAlbums(_ sender: Any) {
+//    }
+    
+    @IBAction func goToCart(_ sender: Any) {
+        navigateToCart()
+    }
+    
     var albums: [Album] = []
     
     let albumString = "https://itunes.apple.com/search?term=taylor&entity=album"
@@ -32,6 +42,7 @@ class ViewController: UIViewController {
     
     func tableSetting() {
         tableView.dataSource = self
+        tableView.delegate = self
         let nib = UINib(nibName: AlbumCell.identifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: AlbumCell.identifier)
     }
@@ -75,33 +86,25 @@ extension ViewController: UITableViewDataSource {
         fetchImage(url: self.albums[indexPath.row].artworkUrl100) { image in
             cell.albumImageView.image = image
         }
-        
         return cell
     }
     
-    
+    func navigateToCart() {
+        let cartSB = UIStoryboard(name: "Cart", bundle: nil)
+        if let cartVC = cartSB.instantiateViewController(identifier: "CartVC") as? CartViewTableViewController {
+            navigationController?.pushViewController(cartVC, animated: true)
+        }
+    }
 }
 
+extension UIViewController: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
-/*
- [X]1. Create MVC folders
- [X]2. Decode model in model file (swift)
- [X]3. Create custom table cell (cocoa touch)
-    [X]- create static method to access identifier
-    [X]- create outlets from nib file
- [X]4. Extend view controller with table settings
-    [X]- configure table view source
-    [X]- register nib with custom cell identifier
- [X]5. Extend view controller with UITableViewDataSourcePrefetching
-    [X]- call fetchData
-        [X]- fetchData invokes downloadData with completion escaping closure
-            [X]- after data is downloaded, main dispatch queue reloads data
- []6. fetchImage function to find from or add to image cache
- []7. Create cache file (swift)
-    []- create static instance with private init
-    []- store data with NSCache class: NSString key(image url, UIImage object)
-    []- create read and write functions
- []8. extend view controller with UITableViewDelegate
-    []- add didSelectRowAt for add to cart or cancel
- []9. Create outlets to nav bar buttons
- */
+        alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
+        }
+}
+
