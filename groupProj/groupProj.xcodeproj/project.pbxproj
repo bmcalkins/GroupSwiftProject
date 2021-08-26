@@ -16,6 +16,8 @@
 		B586877326D7E22000E37DD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B586877126D7E22000E37DD0 /* LaunchScreen.storyboard */; };
 		B586877E26D7E22000E37DD0 /* groupProjTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586877D26D7E22000E37DD0 /* groupProjTests.swift */; };
 		B586878926D7E22000E37DD0 /* groupProjUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586878826D7E22000E37DD0 /* groupProjUITests.swift */; };
+		B586879926D7EE0400E37DD0 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B586879826D7EE0400E37DD0 /* Cart.storyboard */; };
+		B586879B26D7F1D300E37DD0 /* CartViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586879A26D7F1D300E37DD0 /* CartViewTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		B586878426D7E22000E37DD0 /* groupProjUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = groupProjUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B586878826D7E22000E37DD0 /* groupProjUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groupProjUITests.swift; sourceTree = "<group>"; };
 		B586878A26D7E22100E37DD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B586879826D7EE0400E37DD0 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
+		B586879A26D7F1D300E37DD0 /* CartViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				B586876326D7E22000E37DD0 /* AppDelegate.swift */,
 				B586876526D7E22000E37DD0 /* SceneDelegate.swift */,
 				B586876726D7E22000E37DD0 /* ViewController.swift */,
+				B586879A26D7F1D300E37DD0 /* CartViewTableViewController.swift */,
+				B586879826D7EE0400E37DD0 /* Cart.storyboard */,
 				B586876926D7E22000E37DD0 /* Main.storyboard */,
 				B586876F26D7E22000E37DD0 /* Assets.xcassets */,
 				B586877126D7E22000E37DD0 /* LaunchScreen.storyboard */,
@@ -234,6 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B586879926D7EE0400E37DD0 /* Cart.storyboard in Resources */,
 				B586877326D7E22000E37DD0 /* LaunchScreen.storyboard in Resources */,
 				B586877026D7E22000E37DD0 /* Assets.xcassets in Resources */,
 				B586876B26D7E22000E37DD0 /* Main.storyboard in Resources */,
@@ -264,6 +271,7 @@
 				B586876826D7E22000E37DD0 /* ViewController.swift in Sources */,
 				B586876426D7E22000E37DD0 /* AppDelegate.swift in Sources */,
 				B586876E26D7E22000E37DD0 /* groupProj.xcdatamodeld in Sources */,
+				B586879B26D7F1D300E37DD0 /* CartViewTableViewController.swift in Sources */,
 				B586876626D7E22000E37DD0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
