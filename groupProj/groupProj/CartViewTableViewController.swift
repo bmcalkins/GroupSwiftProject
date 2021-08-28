@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CartViewTableViewController: UITableViewController {
+class CartViewTableViewController: UITableViewController  {
+    
+//    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,7 @@ class CartViewTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     
+    var cartAlbums: [Album] = []
   
     @IBAction func buyAction(_ sender: Any) {
         
@@ -28,24 +31,33 @@ class CartViewTableViewController: UITableViewController {
     
     
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+ 
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
-
-      
-
-        return cell
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
     }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "musicListingCell")
+            //set the data 
+            return cell
+        }
+        else if indexPath.row == 1 {
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cartTotalsCell")
+            //set the data
+            return cell
+        }
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+}
     
 
     /*
@@ -93,4 +105,4 @@ class CartViewTableViewController: UITableViewController {
     }
     */
 
-}
+

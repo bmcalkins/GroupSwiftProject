@@ -97,8 +97,8 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension UIViewController: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension ViewController: UITableViewDelegate {
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
         alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: nil))
