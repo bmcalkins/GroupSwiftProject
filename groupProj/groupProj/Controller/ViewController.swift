@@ -104,7 +104,7 @@ extension ViewController: UITableViewDataSource {
     
     func navigateToCart() {
         let cartSB = UIStoryboard(name: "Cart", bundle: nil)
-        if let cartVC = cartSB.instantiateViewController(identifier: "CartViewTableViewController") as? CartViewTableViewController {
+        if let cartVC = cartSB.instantiateViewController(identifier: "CartVC") as? CartViewTableViewController {
             cartVC.setCart(cart)
             navigationController?.pushViewController(cartVC, animated: true)
         }
