@@ -21,7 +21,19 @@ class ViewController: UIViewController {
         navigateToCart()
     }
     
+    
     var albums: [Album] = []
+    var cart: [Album] = []
+    
+    func appendToCartArray( album: String) {
+        for ele in albums {
+            if ele.collectionName == album {
+                cart.append(ele)
+                return
+            }
+        }
+        
+    }
     
     let albumString = "https://itunes.apple.com/search?term=taylor&entity=album"
     
@@ -86,25 +98,36 @@ extension ViewController: UITableViewDataSource {
         fetchImage(url: self.albums[indexPath.row].artworkUrl100) { image in
             cell.albumImageView.image = image
         }
+        
         return cell
     }
     
     func navigateToCart() {
         let cartSB = UIStoryboard(name: "Cart", bundle: nil)
-        if let cartVC = cartSB.instantiateViewController(identifier: "CartVC") as? CartViewTableViewController {
+        if let cartVC = cartSB.instantiateViewController(identifier: "CartViewTableViewController") as? CartViewTableViewController {
+            cartVC.setCart(cart)
             navigationController?.pushViewController(cartVC, animated: true)
         }
     }
 }
 
 extension ViewController: UITableViewDelegate {
+    
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-
-        alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: nil))
+            guard let cell = tableView.cellForRow(at: indexPath) as? AlbumCell else {return}
+            alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "") }
+                                      ))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         self.present(alert, animated: true)
         }
 }
+
+protocol CartDelegate {
+    var cartResults: [Album] {get}
+    func appendToCartArray( album: Album)
+}
+
+
 
