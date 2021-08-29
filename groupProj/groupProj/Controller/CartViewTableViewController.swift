@@ -22,8 +22,10 @@ class CartViewTableViewController: UITableViewController  {
     }
 
     // MARK: - Table view data source
-    
-    var cartAlbums: [Album] = []
+    var cartItems: [Album]
+    func setCart(_ cart: [Album]) {
+        cartItems = cart
+    }
   
     @IBAction func buyAction(_ sender: Any) {
         
@@ -43,7 +45,7 @@ class CartViewTableViewController: UITableViewController  {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "musicListingCell")
-            //set the data 
+            cell.text = 
             return cell
         }
         else if indexPath.row == 1 {
