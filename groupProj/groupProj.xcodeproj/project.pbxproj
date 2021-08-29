@@ -10,6 +10,10 @@
 		8D1E762826D800BA00B79EC2 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E762726D800BA00B79EC2 /* Album.swift */; };
 		8D1E763526D8224600B79EC2 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E762026D7F44B00B79EC2 /* AlbumCell.swift */; };
 		8D1E763626D8230300B79EC2 /* AlbumCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 8D1E762126D7F44B00B79EC2 /* AlbumCell.xib */; };
+		B520D01726DBEAFD0032A477 /* MusicListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B520D01526DBEAFD0032A477 /* MusicListingTableViewCell.swift */; };
+		B520D01826DBEAFD0032A477 /* MusicListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B520D01626DBEAFD0032A477 /* MusicListingTableViewCell.xib */; };
+		B520D01B26DBEC000032A477 /* CartTotalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B520D01926DBEC000032A477 /* CartTotalsTableViewCell.swift */; };
+		B520D01C26DBEC000032A477 /* CartTotalsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B520D01A26DBEC000032A477 /* CartTotalsTableViewCell.xib */; };
 		B586876426D7E22000E37DD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586876326D7E22000E37DD0 /* AppDelegate.swift */; };
 		B586876626D7E22000E37DD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586876526D7E22000E37DD0 /* SceneDelegate.swift */; };
 		B586876826D7E22000E37DD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586876726D7E22000E37DD0 /* ViewController.swift */; };
@@ -21,9 +25,6 @@
 		B586878926D7E22000E37DD0 /* groupProjUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586878826D7E22000E37DD0 /* groupProjUITests.swift */; };
 		B586879926D7EE0400E37DD0 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B586879826D7EE0400E37DD0 /* Cart.storyboard */; };
 		B586879B26D7F1D300E37DD0 /* CartViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586879A26D7F1D300E37DD0 /* CartViewTableViewController.swift */; };
-		B586879E26D987BD00E37DD0 /* MusicListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586879D26D987BD00E37DD0 /* MusicListingTableViewCell.swift */; };
-		B58687A026D999D200E37DD0 /* CartTotalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B586879F26D999D200E37DD0 /* CartTotalsTableViewCell.swift */; };
-		B58687A226DB058300E37DD0 /* AlbumCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58687A126DB058300E37DD0 /* AlbumCart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,10 @@
 		8D1E762026D7F44B00B79EC2 /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		8D1E762126D7F44B00B79EC2 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		8D1E762726D800BA00B79EC2 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		B520D01526DBEAFD0032A477 /* MusicListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListingTableViewCell.swift; sourceTree = "<group>"; };
+		B520D01626DBEAFD0032A477 /* MusicListingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MusicListingTableViewCell.xib; sourceTree = "<group>"; };
+		B520D01926DBEC000032A477 /* CartTotalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTotalsTableViewCell.swift; sourceTree = "<group>"; };
+		B520D01A26DBEC000032A477 /* CartTotalsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartTotalsTableViewCell.xib; sourceTree = "<group>"; };
 		B586876026D7E22000E37DD0 /* groupProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = groupProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B586876326D7E22000E37DD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B586876526D7E22000E37DD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,9 +69,6 @@
 		B586878A26D7E22100E37DD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B586879826D7EE0400E37DD0 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
 		B586879A26D7F1D300E37DD0 /* CartViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewTableViewController.swift; sourceTree = "<group>"; };
-		B586879D26D987BD00E37DD0 /* MusicListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListingTableViewCell.swift; sourceTree = "<group>"; };
-		B586879F26D999D200E37DD0 /* CartTotalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTotalsTableViewCell.swift; sourceTree = "<group>"; };
-		B58687A126DB058300E37DD0 /* AlbumCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		8D1E761F26D7F3A700B79EC2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B586879C26D986E500E37DD0 /* CustomCartCells */,
 				B586879826D7EE0400E37DD0 /* Cart.storyboard */,
 				8D1E762026D7F44B00B79EC2 /* AlbumCell.swift */,
 				8D1E762126D7F44B00B79EC2 /* AlbumCell.xib */,
@@ -108,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				8D1E762726D800BA00B79EC2 /* Album.swift */,
-				B58687A126DB058300E37DD0 /* AlbumCart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,7 +127,6 @@
 		8D1E762626D8007E00B79EC2 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
-				B586879C26D986E500E37DD0 /* CustomCartCells */,
 				B586877126D7E22000E37DD0 /* LaunchScreen.storyboard */,
 				B586877426D7E22000E37DD0 /* Info.plist */,
 				B586876C26D7E22000E37DD0 /* groupProj.xcdatamodeld */,
@@ -189,8 +190,10 @@
 		B586879C26D986E500E37DD0 /* CustomCartCells */ = {
 			isa = PBXGroup;
 			children = (
-				B586879D26D987BD00E37DD0 /* MusicListingTableViewCell.swift */,
-				B586879F26D999D200E37DD0 /* CartTotalsTableViewCell.swift */,
+				B520D01526DBEAFD0032A477 /* MusicListingTableViewCell.swift */,
+				B520D01626DBEAFD0032A477 /* MusicListingTableViewCell.xib */,
+				B520D01926DBEC000032A477 /* CartTotalsTableViewCell.swift */,
+				B520D01A26DBEC000032A477 /* CartTotalsTableViewCell.xib */,
 			);
 			path = CustomCartCells;
 			sourceTree = "<group>";
@@ -301,6 +304,8 @@
 				B586879926D7EE0400E37DD0 /* Cart.storyboard in Resources */,
 				B586877326D7E22000E37DD0 /* LaunchScreen.storyboard in Resources */,
 				B586877026D7E22000E37DD0 /* Assets.xcassets in Resources */,
+				B520D01826DBEAFD0032A477 /* MusicListingTableViewCell.xib in Resources */,
+				B520D01C26DBEC000032A477 /* CartTotalsTableViewCell.xib in Resources */,
 				B586876B26D7E22000E37DD0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,16 +331,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B58687A026D999D200E37DD0 /* CartTotalsTableViewCell.swift in Sources */,
 				8D1E763626D8230300B79EC2 /* AlbumCell.xib in Sources */,
+				B520D01726DBEAFD0032A477 /* MusicListingTableViewCell.swift in Sources */,
 				B586876826D7E22000E37DD0 /* ViewController.swift in Sources */,
 				B586876426D7E22000E37DD0 /* AppDelegate.swift in Sources */,
 				B586876E26D7E22000E37DD0 /* groupProj.xcdatamodeld in Sources */,
-				B58687A226DB058300E37DD0 /* AlbumCart.swift in Sources */,
 				8D1E763526D8224600B79EC2 /* AlbumCell.swift in Sources */,
 				B586879B26D7F1D300E37DD0 /* CartViewTableViewController.swift in Sources */,
 				B586876626D7E22000E37DD0 /* SceneDelegate.swift in Sources */,
-				B586879E26D987BD00E37DD0 /* MusicListingTableViewCell.swift in Sources */,
+				B520D01B26DBEC000032A477 /* CartTotalsTableViewCell.swift in Sources */,
 				8D1E762826D800BA00B79EC2 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
