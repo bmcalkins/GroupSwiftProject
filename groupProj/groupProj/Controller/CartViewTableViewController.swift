@@ -57,14 +57,15 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == cartItems.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: MusicListingTableViewCell.identifier, for: indexPath)
-            cell.configure()
+                //cell.configure()
+            return cell
         }
         else if indexPath.row == 1 {
             let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cartTotalsCell")
             //set the data
             return cell
         }
-        
+        return UITableViewCell()
     }
 
   
