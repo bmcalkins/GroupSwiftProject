@@ -8,8 +8,8 @@
 import UIKit
 
 class MusicListingTableViewCell: UITableViewCell {
-    @IBOutlet var myAlbumNameLabel: UILabel!
-    @IBOutlet var myPriceLabel: UILabel!
+    @IBOutlet var albumName: UILabel!
+    @IBOutlet var albumPrice: UILabel!
     
     static let identifier = "MusicListingTableViewCell"
     
@@ -20,6 +20,8 @@ class MusicListingTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        albumName.text = "Name"
+        albumPrice.text = "Price"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
