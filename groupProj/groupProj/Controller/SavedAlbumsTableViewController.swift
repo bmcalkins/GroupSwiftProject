@@ -9,8 +9,9 @@ import UIKit
 import CoreData
 import Foundation
 
-class SavedAlbumsTableViewController: UITableViewController{
-    
+
+class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
     
 // Mark: table functions
     ///context as reference to persistent container, arrays for items from cart and a reference to stored items
@@ -21,10 +22,11 @@ class SavedAlbumsTableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.dataSource = self
         //updateAlbumList(from: albumsTransferred) // update storage with purchased items
         
         getAllAlbums() //fetch items from storage
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,13 +36,12 @@ class SavedAlbumsTableViewController: UITableViewController{
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return albumsStored.count
     }
@@ -51,7 +52,7 @@ class SavedAlbumsTableViewController: UITableViewController{
         
     }*/
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
         let selectedCell = albumsStored[indexPath.row]
@@ -142,3 +143,5 @@ class SavedAlbumsTableViewController: UITableViewController{
         }
     }*/
 }
+
+

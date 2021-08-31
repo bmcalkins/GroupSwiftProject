@@ -14,11 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var cartButton: UIBarButtonItem!
-    
-    ///outlet created for album view controller
-    
-//    @IBAction func goToMyAlbums(_ sender: Any) {
-//    }
+        
+    @IBAction func goToMyAlbums(_ sender: Any) {
+        navigateToMyAlbums()
+    }
     
     @IBAction func goToCart(_ sender: Any) {
         navigateToCart()
@@ -120,6 +119,16 @@ extension ViewController: UITableViewDataSource {
             navigationController?.pushViewController(cartVC, animated: true)
         }
     }
+    
+    func navigateToMyAlbums() {
+        print("album VC")
+        let albumsSB = UIStoryboard(name: "savedAlbum", bundle: nil)
+        if let albumsVC = albumsSB.instantiateViewController(identifier: "SavedAlbums") as? SavedAlbumsTableViewController {
+
+            navigationController?.pushViewController(albumsVC, animated: true)
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate {
@@ -130,7 +139,7 @@ extension ViewController: UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? AlbumCell else {return}
             
             alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "")
-                updateCartImage()
+                self.updateCartImage()
             }
                                       ))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
