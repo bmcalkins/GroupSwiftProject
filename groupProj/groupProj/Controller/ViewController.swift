@@ -23,6 +23,7 @@ class ViewController: UIViewController, CartDelegate {
     @IBAction func goToCart(_ sender: Any) {
         navigateToCart()
     }
+    
     var saver = SavedAlbumsTableViewController()
     var albums: [Album] = []
     var cart: [Album] = []
@@ -43,10 +44,8 @@ class ViewController: UIViewController, CartDelegate {
             
         }
         self.cart.removeAll()
+        self.updateCartImage()
     }
-    
-  
-
     
     func appendToCartArray( album: String) {
         for ele in albums {
@@ -55,7 +54,6 @@ class ViewController: UIViewController, CartDelegate {
                 return
             }
         }
-        
     }
     
     let albumString = "https://itunes.apple.com/search?term=taylor&entity=album"
@@ -137,42 +135,39 @@ extension ViewController: UITableViewDataSource {
             cartVC.setCart(cart)
             cartVC.delegate = self
             navigationController?.pushViewController(cartVC, animated: true)
-        
         }
     }
     
     func navigateToMyAlbums() {
-        print("album VC")
         let albumsSB = UIStoryboard(name: "savedAlbum", bundle: nil)
         if let albumsVC = albumsSB.instantiateViewController(identifier: "SavedAlbums") as? SavedAlbumsTableViewController {
 
             navigationController?.pushViewController(albumsVC, animated: true)
         }
     }
-    
 }
 
 extension ViewController: UITableViewDelegate {
     
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
         guard let cell = tableView.cellForRow(at: indexPath) as? AlbumCell else {return}
             
-            alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "")
-                self.updateCartImage()
-            }
-                                      ))
+        alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "")
+            self.updateCartImage()
+        })
+        )
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         self.present(alert, animated: true)
-        }
+    }
 }
 
 protocol CartDelegate: AnyObject {
     var cart: [Album] {get}
     func clearCart( albums: [Album])
-   
 }
 
 protocol musicDelegate {
