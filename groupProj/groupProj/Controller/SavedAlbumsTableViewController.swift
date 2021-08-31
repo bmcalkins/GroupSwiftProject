@@ -9,7 +9,9 @@ import UIKit
 import CoreData
 import Foundation
 
-class SavedAlbumsTableViewController: UITableViewController {
+class SavedAlbumsTableViewController: UITableViewController{
+    
+    
 // Mark: table functions
     ///context as reference to persistent container, arrays for items from cart and a reference to stored items
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -19,7 +21,8 @@ class SavedAlbumsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateAlbumList(from: albumsTransferred) // update storage with purchased items
+        //updateAlbumList(from: albumsTransferred) // update storage with purchased items
+        
         getAllAlbums() //fetch items from storage
 
         // Uncomment the following line to preserve selection between presentations
@@ -132,10 +135,10 @@ class SavedAlbumsTableViewController: UITableViewController {
         }
     }
     
-    func updateAlbumList(from cart: [Album])
+    /*func updateAlbumList(from cart: [Album])
     {
         for item in cart{
             createAlbum(name: item.collectionName)
         }
-    }
+    }*/
 }

@@ -7,7 +7,19 @@
 
 import UIKit
 
-class CartViewTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CartViewTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CartDelegate {
+    var cartResults: [Album] = []
+    
+    func appendToCartArray(album: Album) {
+        <#code#>
+    }
+    
+    var albums: [Album] = []
+    
+    func displayListOfAlbums(albums: [Album]) {
+        ///display list of albums here
+    }
+    
  
     
     var cartItems: [Album] = []
@@ -40,9 +52,13 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
   
     @IBAction func buyAction(_ sender: Any) {
-        
+        // loop for save changes
     }
-    
+    /*
+     @IBAction func buyAction(cart: [Album]_ sender: Any) {
+         
+     }
+     **/
     
     
  
