@@ -11,6 +11,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var cartButton: UIBarButtonItem!
     
     ///outlet created for album view controller
     
@@ -20,7 +21,6 @@ class ViewController: UIViewController {
     @IBAction func goToCart(_ sender: Any) {
         navigateToCart()
     }
-    
     
     var albums: [Album] = []
     var cart: [Album] = []
@@ -50,6 +50,11 @@ class ViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func updateCartImage() {
+        let imageStr = cart.count > 0 ? "cart.fill" : "cart"
+        cartButton.image = UIImage(systemName: imageStr)
     }
     
     func tableSetting() {
@@ -118,7 +123,9 @@ extension ViewController: UITableViewDelegate {
             
         guard let cell = tableView.cellForRow(at: indexPath) as? AlbumCell else {return}
             
-            alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "") }
+            alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "")
+                updateCartImage()
+            }
                                       ))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
