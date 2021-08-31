@@ -13,6 +13,8 @@ import Foundation
 class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
 // Mark: table functions
     ///context as reference to persistent container, arrays for items from cart and a reference to stored items
     public let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -22,7 +24,7 @@ class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.dataSource = self
         //updateAlbumList(from: albumsTransferred) // update storage with purchased items
         
@@ -32,9 +34,19 @@ class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Empty", style: .plain, target: self, action: #selector(emptyStorage))
     }
-
+    
+    @objc func emptyStorage()
+    {
+        for item in albumsStored
+        {
+            deleteItem(item: item)
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
     // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -105,7 +117,7 @@ class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
         // Pass the selected object to the new view controller.
     }
     */
-    //MARK: -----Core Data-----
+    //MARK: -----Core Data Manipulation Functions-----
     ///fills album stored array from persistent container
     func getAllAlbums()
     {
@@ -133,6 +145,19 @@ class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
         catch
         {
             print("Error creating")
+        }
+    }
+    func deleteItem(item: StoredAlbum)
+    {
+        context.delete(item)
+        
+        do
+        {
+            try context.save()
+        }
+        catch
+        {
+            print("Error deleting")
         }
     }
     
