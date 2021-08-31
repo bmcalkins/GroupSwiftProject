@@ -116,11 +116,11 @@ extension ViewController: UITableViewDataSource {
     
     func navigateToMyAlbums() {
         print("album VC")
-//        let albumsSB = UIStoryboard(name: "savedAlbums", bundle: nil)
-//        if let albumsVC = albumsSB.instantiateViewController(identifier: "AlbumsVC") as? AlbumsViewController {
+        let albumsSB = UIStoryboard(name: "savedAlbum", bundle: nil)
+        if let albumsVC = albumsSB.instantiateViewController(identifier: "SavedAlbums") as? SavedAlbumsTableViewController {
 
-//            navigationController?.pushViewController(albumsVC, animated: true)
-//        }
+            navigationController?.pushViewController(albumsVC, animated: true)
+        }
     }
     
 }

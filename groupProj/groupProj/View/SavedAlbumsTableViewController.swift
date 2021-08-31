@@ -7,15 +7,14 @@
 
 import UIKit
 
-class SavedAlbumsTableViewController: UITableViewController {
-
-    
+class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
+    @IBOutlet weak var tableView: UITableView!
     
     var albumsTransferred: [Album] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.dataSource = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -25,13 +24,12 @@ class SavedAlbumsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return albumsTransferred.count
     }
@@ -42,7 +40,7 @@ class SavedAlbumsTableViewController: UITableViewController {
         
     }*/
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
         let selectedCell = albumsTransferred[indexPath.row]
@@ -97,3 +95,5 @@ class SavedAlbumsTableViewController: UITableViewController {
     */
 
 }
+
+
