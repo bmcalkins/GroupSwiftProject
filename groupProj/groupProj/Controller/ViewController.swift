@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var cartDelegate: CartDelegate?
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var cartButton: UIBarButtonItem!
@@ -84,6 +86,10 @@ class ViewController: UIViewController {
             }
         }.resume()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -147,5 +153,8 @@ protocol CartDelegate {
     func appendToCartArray( album: Album)
 }
 
-
+protocol musicDelegate {
+    var albums: [Album] { get }
+    func displayListOfAlbums(albums: [Album])
+}
 

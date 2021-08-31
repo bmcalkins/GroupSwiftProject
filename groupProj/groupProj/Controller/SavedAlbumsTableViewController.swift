@@ -6,15 +6,27 @@
 //
 
 import UIKit
+import CoreData
+import Foundation
+
 
 class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
+// Mark: table functions
+    ///context as reference to persistent container, arrays for items from cart and a reference to stored items
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var albumsTransferred: [Album] = []
+    private var albumsStored = [StoredAlbum]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.dataSource = self
+        //updateAlbumList(from: albumsTransferred) // update storage with purchased items
+        
+        getAllAlbums() //fetch items from storage
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -31,7 +43,7 @@ class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return albumsTransferred.count
+        return albumsStored.count
     }
     
     
@@ -43,8 +55,8 @@ class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        let selectedCell = albumsTransferred[indexPath.row]
-        cell.textLabel?.text = selectedCell.collectionName
+        let selectedCell = albumsStored[indexPath.row]
+        cell.textLabel?.text = selectedCell.name
         return cell
     }
     
@@ -93,7 +105,43 @@ class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
         // Pass the selected object to the new view controller.
     }
     */
-
+    //MARK: -----Core Data-----
+    ///fills album stored array from persistent container
+    func getAllAlbums()
+    {
+        do{
+            albumsStored = try context.fetch(StoredAlbum.fetchRequest())
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        catch
+        {
+            print("Error retrieving")
+        }
+    }
+    
+    func createAlbum(name: String)
+    {
+        let newAlbum = StoredAlbum(context: context)
+        newAlbum.name = name
+        
+        do
+        {
+            try context.save()
+        }
+        catch
+        {
+            print("Error creating")
+        }
+    }
+    
+    /*func updateAlbumList(from cart: [Album])
+    {
+        for item in cart{
+            createAlbum(name: item.collectionName)
+        }
+    }*/
 }
 
 

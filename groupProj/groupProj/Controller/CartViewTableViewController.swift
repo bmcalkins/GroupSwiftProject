@@ -52,6 +52,19 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
 //    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 //        return 1
 //    }
+        // loop for save changes
+    }
+    /*
+     @IBAction func buyAction(cart: [Album]_ sender: Any) {
+         
+     }
+     **/
+    
+    
+ 
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cartItems.count + 1
