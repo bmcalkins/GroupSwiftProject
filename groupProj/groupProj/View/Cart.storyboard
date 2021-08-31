@@ -94,24 +94,6 @@
             </objects>
             <point key="canvasLocation" x="2281.1594202898555" y="6.5217391304347831"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="NQh-Ip-ryT">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0jB-eH-H1W" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6yJ-Ep-bDx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="OL1-Gl-kGg" kind="relationship" relationship="rootViewController" id="gCF-5K-m0E"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aen-eO-7hQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="534.78260869565224" y="6.5217391304347831"/>
-        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

@@ -11,12 +11,21 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
  
     @IBOutlet var tableView: UITableView!
     
+    weak var delegate: CartDelegate?
     var cartItems: [Album] = []
     func setCart(_ cart: [Album]) {
         cartItems = cart
     }
     
+    @objc func buyAction(sender: UIBarButtonItem){
+        emptyCart(cart: cartItems)
+    }
     
+    func emptyCart(cart: [Album]) {
+        delegate?.clearCart(albums: cartItems)
+        self.cartItems.removeAll()
+        self.tableView.reloadData()
+    }
    
     
 
@@ -25,8 +34,8 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
 //        view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-       
-       
+        self.title = "Cart"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Buy", style: .plain, target: self, action: #selector(buyAction))
         
         tableView.register(MusicListingTableViewCell.nib(), forCellReuseIdentifier: MusicListingTableViewCell.identifier)
         
@@ -42,9 +51,7 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
        
     }
   
-    @IBAction func buyAction(_ sender: Any) {
-        cartItems.removeAll()
-    }
+    
     
     
     
@@ -53,7 +60,7 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
 //        return 1
 //    }
         // loop for save changes
-    }
+//    }
     /*
      @IBAction func buyAction(cart: [Album]_ sender: Any) {
          

@@ -15,7 +15,7 @@ class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
     
 // Mark: table functions
     ///context as reference to persistent container, arrays for items from cart and a reference to stored items
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    public let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var albumsTransferred: [Album] = []
     private var albumsStored = [StoredAlbum]()
@@ -110,7 +110,7 @@ class SavedAlbumsTableViewController: UIViewController, UITableViewDataSource {
     func getAllAlbums()
     {
         do{
-            albumsStored = try context.fetch(StoredAlbum.fetchRequest())
+        albumsStored = try context.fetch(StoredAlbum.fetchRequest())
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

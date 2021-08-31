@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
-class ViewController: UIViewController {
-
-    var cartDelegate: CartDelegate?
+class ViewController: UIViewController, CartDelegate {
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,9 +23,30 @@ class ViewController: UIViewController {
     @IBAction func goToCart(_ sender: Any) {
         navigateToCart()
     }
-    
+    var saver = SavedAlbumsTableViewController()
     var albums: [Album] = []
     var cart: [Album] = []
+    
+    
+    func clearCart(albums: [Album]) {
+        for ele in cart {
+            self.saver.createAlbum(name: ele.collectionName)
+            
+            do
+            {
+                try context.save()
+            }
+            catch
+            {
+                print("Error saving")
+            }
+            
+        }
+        self.cart.removeAll()
+    }
+    
+  
+
     
     func appendToCartArray( album: String) {
         for ele in albums {
@@ -86,10 +108,6 @@ class ViewController: UIViewController {
             }
         }.resume()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
-    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -114,9 +132,12 @@ extension ViewController: UITableViewDataSource {
     
     func navigateToCart() {
         let cartSB = UIStoryboard(name: "Cart", bundle: nil)
+        
         if let cartVC = cartSB.instantiateViewController(identifier: "CartViewTableViewController") as? CartViewTableViewController {
             cartVC.setCart(cart)
+            cartVC.delegate = self
             navigationController?.pushViewController(cartVC, animated: true)
+        
         }
     }
     
@@ -148,13 +169,15 @@ extension ViewController: UITableViewDelegate {
         }
 }
 
-protocol CartDelegate {
-    var cartResults: [Album] {get}
-    func appendToCartArray( album: Album)
+protocol CartDelegate: AnyObject {
+    var cart: [Album] {get}
+    func clearCart( albums: [Album])
+   
 }
 
 protocol musicDelegate {
     var albums: [Album] { get }
     func displayListOfAlbums(albums: [Album])
 }
+
 
