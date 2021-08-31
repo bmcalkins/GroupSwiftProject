@@ -18,14 +18,12 @@ class CartTotalsTableViewCell: UITableViewCell {
         return UINib(nibName: "CartTotalsTableViewCell", bundle: nil)
     }
     
-    public func configure()
-    {
-        
-    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        myQuantityLabel.text = "Quantity"
+        myPriceTotalLabel.text = "Price"
         // Initialization code
     }
 

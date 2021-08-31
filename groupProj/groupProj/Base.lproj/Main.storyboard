@@ -43,6 +43,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cartButton" destination="XNM-8y-agt" id="Uzj-W9-W8t"/>
                         <outlet property="tableView" destination="eN0-cX-DL2" id="6tV-z8-aJv"/>
                     </connections>
                 </viewController>

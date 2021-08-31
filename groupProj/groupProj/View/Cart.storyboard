@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7M3-JM-wBt">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,35 +11,106 @@
         <!--Cart View Table View Controller-->
         <scene sceneID="fb2-x7-dXP">
             <objects>
-                <tableViewController storyboardIdentifier="CartVC" id="OL1-Gl-kGg" customClass="CartViewTableViewController" customModule="groupProj" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Woops" id="OL1-Gl-kGg" customClass="CartViewTableViewController" customModule="groupProj" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="B55-ht-ndP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="4nJ-pl-eaV">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Cart" id="SNW-oO-Ftt">
-                                    <barButtonItem key="rightBarButtonItem" title="Buy" id="sdS-AC-AOp">
-                                        <connections>
-                                            <action selector="BuyClear:" destination="OL1-Gl-kGg" id="Wjm-0G-wpv"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="geT-pe-WvO">
+                                <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="geT-pe-WvO" id="H3W-yC-Bmi">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="OL1-Gl-kGg" id="m7o-Gf-wJG"/>
                             <outlet property="delegate" destination="OL1-Gl-kGg" id="uqw-rc-ZAk"/>
                         </connections>
                     </tableView>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="03D-4z-5b3">
+                        <barButtonItem key="rightBarButtonItem" title="Buy" id="4we-UR-ycD">
+                            <connections>
+                                <action selector="buyAction:" destination="OL1-Gl-kGg" id="N8I-Pc-YG7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0T-Ff-W90" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="752.17391304347836" y="60.9375"/>
+            <point key="canvasLocation" x="1442.0289855072465" y="6.5217391304347831"/>
+        </scene>
+        <!--Cart View Table View Controller-->
+        <scene sceneID="K2A-DS-FOj">
+            <objects>
+                <viewController storyboardIdentifier="CartViewTableViewController" id="7M3-JM-wBt" customClass="CartViewTableViewController" customModule="groupProj" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6VL-oM-Hcp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ABC-LH-4Pa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="vOQ-xV-vXC" customClass="MusicListingTableViewCell" customModule="groupProj" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vOQ-xV-vXC" id="D9n-zt-UnU">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="y4W-Va-ISS" customClass="CartTotalsTableViewCell" customModule="groupProj" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68.000001907348633" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y4W-Va-ISS" id="xqP-Qf-mIO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xRS-Bc-4U9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xRS-Bc-4U9" firstAttribute="trailing" secondItem="ABC-LH-4Pa" secondAttribute="trailing" id="121-dA-nFw"/>
+                            <constraint firstItem="ABC-LH-4Pa" firstAttribute="top" secondItem="xRS-Bc-4U9" secondAttribute="top" id="IZJ-er-xaG"/>
+                            <constraint firstItem="ABC-LH-4Pa" firstAttribute="leading" secondItem="xRS-Bc-4U9" secondAttribute="leading" id="wst-Fh-f9X"/>
+                            <constraint firstItem="xRS-Bc-4U9" firstAttribute="bottom" secondItem="ABC-LH-4Pa" secondAttribute="bottom" id="xsG-mI-54E"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ABC-LH-4Pa" id="sFD-oM-TON"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pSv-bz-J25" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2281.1594202898555" y="6.5217391304347831"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NQh-Ip-ryT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0jB-eH-H1W" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6yJ-Ep-bDx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OL1-Gl-kGg" kind="relationship" relationship="rootViewController" id="gCF-5K-m0E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aen-eO-7hQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="534.78260869565224" y="6.5217391304347831"/>
         </scene>
     </scenes>
     <resources>

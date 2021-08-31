@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var cartButton: UIBarButtonItem!
     
     ///outlet created for album view controller
     
@@ -22,7 +23,6 @@ class ViewController: UIViewController {
     @IBAction func goToCart(_ sender: Any) {
         navigateToCart()
     }
-    
     
     var albums: [Album] = []
     var cart: [Album] = []
@@ -52,6 +52,11 @@ class ViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    func updateCartImage() {
+        let imageStr = cart.count > 0 ? "cart.fill" : "cart"
+        cartButton.image = UIImage(systemName: imageStr)
     }
     
     func tableSetting() {
@@ -99,7 +104,7 @@ extension ViewController: UITableViewDataSource {
         
         cell.albumName.text = self.albums[indexPath.row].collectionName
         
-        cell.albumPrice.text = String(self.albums[indexPath.row].collectionPrice)
+        cell.albumPrice.text = "$" + String(self.albums[indexPath.row].collectionPrice)
         
         fetchImage(url: self.albums[indexPath.row].artworkUrl100) { image in
             cell.albumImageView.image = image
@@ -110,7 +115,7 @@ extension ViewController: UITableViewDataSource {
     
     func navigateToCart() {
         let cartSB = UIStoryboard(name: "Cart", bundle: nil)
-        if let cartVC = cartSB.instantiateViewController(identifier: "CartVC") as? CartViewTableViewController {
+        if let cartVC = cartSB.instantiateViewController(identifier: "CartViewTableViewController") as? CartViewTableViewController {
             cartVC.setCart(cart)
             navigationController?.pushViewController(cartVC, animated: true)
         }
@@ -121,8 +126,12 @@ extension ViewController: UITableViewDelegate {
     
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            guard let cell = tableView.cellForRow(at: indexPath) as? AlbumCell else {return}
-            alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "") }
+            
+        guard let cell = tableView.cellForRow(at: indexPath) as? AlbumCell else {return}
+            
+            alert.addAction(UIAlertAction(title: "Add To Cart", style: .default, handler: {(alert:UIAlertAction!) in self.appendToCartArray(album: cell.albumName.text ?? "")
+                updateCartImage()
+            }
                                       ))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
