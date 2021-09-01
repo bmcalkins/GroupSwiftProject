@@ -27,11 +27,8 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
         self.tableView.reloadData()
     }
    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
         self.title = "Cart"
@@ -41,8 +38,6 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
         
         
         tableView.register(CartTotalsTableViewCell.nib(), forCellReuseIdentifier:  CartTotalsTableViewCell.identifier)
-        
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -50,25 +45,7 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.frame = view.bounds
        
     }
-  
-    
-    
-    
-    
-//
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return 1
-//    }
-        // loop for save changes
-//    }
-    /*
-     @IBAction func buyAction(cart: [Album]_ sender: Any) {
-         
-     }
-     **/
-    
-    
- 
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
@@ -95,22 +72,16 @@ class CartViewTableViewController: UIViewController, UITableViewDelegate, UITabl
 
             cell = myCell
         }
-
-        
      return cell
-        
     }
     
     func calculateCartTotal() -> Double {
         var sum = 0.0
         for ele in cartItems {
-            sum += Double(ele.collectionPrice) * Double(cartItems.count + 1)
-
+            sum += Double(ele.collectionPrice)
         }
         return sum
     }
-
-  
 }
     
 
